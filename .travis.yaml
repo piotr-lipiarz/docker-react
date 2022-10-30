@@ -1,0 +1,19 @@
+sudo: required
+language: generic
+services:
+  # provides docker copy
+  - docker
+
+before_install:
+  # docker build return id of new image
+  - docker build -t piotrlipiarz/docker-react -f Dockerfile.dev .
+
+script:
+  # CI=true -> https://create-react-app.dev/docs/running-tests/#linux-macos-bash
+  # ENvs -> https://docs.docker.com/engine/reference/run/#env-environment-variables
+  - docker run -e CI=true piotrlipiarz/docker-react npm run test
+
+#  language: generic
+  # 
+  # 
+  # 
