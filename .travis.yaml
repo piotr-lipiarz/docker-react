@@ -14,8 +14,3 @@ script:
   # `CI=true` exists test runner
   # https://create-react-app.dev/docs/running-tests/#linux-macos-bash
   - docker run -e CI=true piotrlipiarz/docker-react npm run test
-
-#  language: generic
-  # 
-  # 
-  # 
