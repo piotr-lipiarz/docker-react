@@ -14,3 +14,16 @@ script:
   # `CI=true` exists test runner
   # https://create-react-app.dev/docs/running-tests/#linux-macos-bash
   - docker run -e CI=true piotrlipiarz/docker-react npm run test
+
+deploy:
+  # travis has set of instruction for elasticbeanstalk
+  provider: "elasticbeanstalk"
+  region: "eu-central-1"
+  app: "udemy-docker-react"
+  env: "Udemydockerreact-env"
+  bucket_name: "elasticbeanstalk-eu-central-1-728344804271"
+  bucket_path: "udemy-docker-react"
+  on:
+    branch: master
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$AWS_SECRET_KEY"
